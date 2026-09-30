@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* ====================================================
+   Polices Personnalisées : Glancyr (Titres) & Metropolis (Paragraphes)
+   ==================================================== */
+@font-face {
+  font-family: 'Glancyr';
+  src: url('/font/Glancyr Neue Demo.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Glancyr Neue';
+  src: url('/font/Glancyr Neue Demo.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/font/Metropolis-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  src: url('/font/Metropolis-Medium.otf') format('opentype');
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Couleurs Primaires */
+  --color-primary-red: #ED1C24;
+  --color-primary-navy: #002157;
+
+  /* Couleurs Secondaires */
+  --color-secondary-yellow: #FFCD00;
+  --color-secondary-gray: #606060;
+
+  /* Raccourcis et aliases de marque */
+  --color-brand-red: #ED1C24;
+  --color-brand-navy: #002157;
+  --color-brand-yellow: #FFCD00;
+  --color-brand-gray: #606060;
+
+  /* Typographies : Metropolis pour les paragraphes, Glancyr pour les titres */
+  --font-sans: 'Metropolis', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Metropolis', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-title: 'Glancyr', 'Glancyr Neue', system-ui, sans-serif;
+  --font-heading: 'Glancyr', 'Glancyr Neue', system-ui, sans-serif;
+  --font-display: 'Glancyr', 'Glancyr Neue', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  /* Couleurs Primaires officielles */
+  --primary-red: #ED1C24;
+  --primary-navy: #002157;
+
+  /* Couleurs Secondaires officielles */
+  --secondary-yellow: #FFCD00;
+  --secondary-gray: #606060;
+
+  /* Polices */
+  --font-title: 'Glancyr', 'Glancyr Neue', system-ui, sans-serif;
+  --font-body: 'Metropolis', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Thème blanc - Jetons de design */
+  --bg-page: #FFFFFF;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F8FAFC;
+  --bg-surface-subtle: #F1F5F9;
+
+  --border-light: #E2E8F0;
+  --border-subtle: #E2E8F0;
+  --border-primary: rgba(0, 33, 87, 0.12);
+
+  --text-heading: #002157;
+  --text-body: #606060;
+  --text-muted: #94A3B8;
+  --text-dark: #0F172A;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Application systématique des polices */
+p,
+span,
+input,
+textarea,
+button,
+select,
+label,
+li,
+a {
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-title,
+.font-heading {
+  font-family: var(--font-title);
+  letter-spacing: -0.015em;
+}
+
+/* Utilitaires pour le thème blanc & reflets de lumière */
+.white-mesh-bg {
+  background-color: #FFFFFF;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(237, 28, 36, 0.05) 0px, transparent 50%),
+    radial-gradient(at 90% 20%, rgba(0, 33, 87, 0.06) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(255, 205, 0, 0.06) 0px, transparent 50%);
+}
+
+.subtle-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 33, 87, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 33, 87, 0.03) 1px, transparent 1px);
+}
