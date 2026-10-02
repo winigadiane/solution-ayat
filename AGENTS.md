@@ -35,3 +35,25 @@ Les polices sont stockées localement dans `public/font/` :
 * Fichier de styles maître : `src/index.css`
 * Moteur : **Tailwind CSS v4** (`@theme`) avec variables CSS `:root`
 * Préchargement des polices : Déclaré dans `index.html` via `<link rel="preload">`
+
+---
+
+## 4. Règle Stricte d'Iconographie & Design
+
+* **INTERDICTION ABSOLUE D'UTILISER L'ICÔNE SPARKLES / ÉTOILE SCINTILLANTE** : Ne jamais utiliser l'icône `Sparkles` (Lucide) ou tout pictogramme d'étincelles / étoiles à 4 branches. Utiliser à la place des puces épurées (`span` point couleur) ou des icônes contextuelles spécifiques et sobres.
+
+---
+
+## 5. Règle d'Exécution & Aperçu Navigateur
+
+* **PAS D'APERÇU AUTOMATIQUE** : Ne jamais déclencher systématiquement d'agent navigateur ou de preview du site. Le faire **uniquement sur demande explicite** de l'utilisateur.
+
+---
+
+## 6. Règle Stricte de Palette Chromatique
+
+* **AUCUN VERT AUTORISÉ DANS LE SITE** : Ne jamais utiliser de vert (ni `green`, `emerald`, `#25D366`, etc.), même pour WhatsApp, statuts ou validations. Utiliser exclusivement :
+  * **#ED1C24** (Rouge officiel) pour les actions prioritaires, CTA et boutons d'action.
+  * **#002157** (Bleu nuit officiel) pour les structures, textes majeurs et boutons secondaires.
+  * **#FFCD00** (Jaune or officiel) pour les accents et validations.
+  * **#606060** et teintes d'ardoise neutres pour le texte courant.

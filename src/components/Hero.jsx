@@ -6,6 +6,8 @@ export default function Hero() {
   const [selectedImage, setSelectedImage] = useState(0);
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [loadProgress, setLoadProgress] = useState(0);
 
   // Photos réelles de terrain de Solution Hayathe
   const heroImages = [
@@ -29,16 +31,64 @@ export default function Hero() {
     }
   ];
 
-  // Défilement automatique des photos toutes les 5 secondes
+  // Préchargement fluide des images haute résolution avec temps de chargement élégant
   useEffect(() => {
-    if (isPaused) return;
+    let isMounted = true;
+    let loadedCount = 0;
+    const total = heroImages.length;
+
+    const updateProgress = () => {
+      loadedCount++;
+      if (isMounted) {
+        setLoadProgress(Math.round((loadedCount / total) * 100));
+      }
+    };
+
+    const promises = heroImages.map((img) => {
+      return new Promise((resolve) => {
+        const image = new Image();
+        image.src = img.url;
+        image.onload = () => {
+          updateProgress();
+          resolve(true);
+        };
+        image.onerror = () => {
+          updateProgress();
+          resolve(false);
+        };
+      });
+    });
+
+    // Délai minimum léger (250ms) pour une transition sans à-coup
+    const minDelay = new Promise((resolve) => setTimeout(resolve, 250));
+
+    Promise.all([Promise.all(promises), minDelay]).then(() => {
+      if (isMounted) {
+        setImagesLoaded(true);
+      }
+    });
+
+    // Sécurité max 2.5s pour éviter tout blocage
+    const safetyTimer = setTimeout(() => {
+      if (isMounted) setImagesLoaded(true);
+    }, 2500);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(safetyTimer);
+    };
+  }, []);
+
+  // Défilement automatique des photos toutes les 5 secondes (actif uniquement quand les images sont prêtes)
+  useEffect(() => {
+    if (isPaused || !imagesLoaded) return;
 
     const interval = setInterval(() => {
       setSelectedImage((prev) => (prev + 1) % heroImages.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isPaused, heroImages.length]);
+  }, [isPaused, imagesLoaded, heroImages.length]);
 
   return (
     <section className="relative px-4 sm:px-6 lg:px-8 pt-1 pb-12 sm:pb-16 max-w-[1440px] mx-auto select-none bg-white">
@@ -50,6 +100,38 @@ export default function Hero() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
+        
+        {/* Écran de chargement sobre et élégant */}
+        <AnimatePresence>
+          {!imagesLoaded && (
+            <motion.div
+              key="hero-loader"
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: 'easeInOut' }}
+              className="absolute inset-0 z-50 bg-[#002157] flex flex-col items-center justify-center p-6"
+            >
+              <div className="flex flex-col items-center space-y-4">
+                {/* Logo sobre avec spinner fin */}
+                <div className="relative flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full border-2 border-white/15 border-t-[#ED1C24] animate-spin absolute" />
+                  <div className="w-9 h-9 rounded-full bg-white/10 p-1.5 flex items-center justify-center">
+                    <img
+                      src="/images/logo.png"
+                      alt="Solution Hayathe"
+                      className="w-full h-full object-contain opacity-90"
+                    />
+                  </div>
+                </div>
+
+                {/* Libellé sobre et discret */}
+                <span className="text-xs font-medium text-white/60 tracking-wider uppercase font-body">
+                  Chargement...
+                </span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
         
         {/* 1. Images de fond avec transition douce et défilement automatique */}
         <div className="absolute inset-0 overflow-hidden">
@@ -66,18 +148,13 @@ export default function Hero() {
             />
           </AnimatePresence>
 
-          {/* 2. Gradient de superposition allégé pour laisser transparaître la photo :
-              - Très transparent sur le sujet à gauche
-              - Voile doux et translucide sur la droite pour assurer le contraste sans assombrir l'image */}
-          <div 
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage: 'linear-gradient(to right, transparent 0%, rgba(0, 33, 87, 0.12) 35%, rgba(0, 23, 61, 0.38) 65%, rgba(0, 15, 41, 0.58) 100%)'
-            }}
-          ></div>
+          {/* 2. Gradient de superposition :
+              - Sur mobile & tablette (< lg) : Couverture totale sur toute l'étendue de l'image pour une lisibilité parfaite du texte
+              - Sur desktop (lg+) : Dégradé horizontal subtil laissant transparaître le sujet à gauche */}
+          <div className="absolute inset-0 pointer-events-none bg-[#00173d]/70 sm:bg-[#00173d]/65 lg:bg-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-[#002157]/20 lg:to-[#00112c]/70" />
 
-          {/* Fondu très léger en bas pour les statistiques */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/50 via-black/20 to-transparent pointer-events-none"></div>
+          {/* Fondu inférieur pour le bandeau de statistiques */}
+          <div className="absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none" />
         </div>
 
         {/* 3. Espace supérieur avec puces de progression automatique aux couleurs de la charte */}

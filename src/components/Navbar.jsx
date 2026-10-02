@@ -19,18 +19,18 @@ export default function Navbar() {
         </a>
 
         {/* Liens Centraux — En police Metropolis avec interactions aux couleurs officielles */}
-        <nav className="hidden md:flex items-center gap-8 text-[14px] font-medium font-body text-[#002157]">
+        <nav className="hidden md:flex items-center gap-7 text-[14px] font-medium font-body text-[#002157]">
           <a href="#association" className="hover:text-[#ED1C24] transition-colors">
             L'Association
           </a>
           <a href="#axes" className="hover:text-[#ED1C24] transition-colors">
             Nos 6 Axes
           </a>
-          <a href="#espaces-sante" className="hover:text-[#ED1C24] transition-colors">
-            Espaces Santé
-          </a>
           <a href="#terrain" className="hover:text-[#ED1C24] transition-colors">
-            Terrain & Impact
+            Nos Projets
+          </a>
+          <a href="#blog" className="hover:text-[#ED1C24] transition-colors">
+            Blog & Décryptages
           </a>
           <a href="#contact" className="hover:text-[#ED1C24] transition-colors">
             Contact
@@ -40,21 +40,21 @@ export default function Navbar() {
         {/* Bouton Droite : Style pilule aux couleurs officielles (#ED1C24 / #FFCD00) */}
         <div className="hidden sm:flex items-center gap-3">
           <a
-            href="#don"
+            href="#contact"
             className="px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#ED1C24] hover:bg-[#c9141b] text-white transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 font-body flex items-center gap-1.5"
           >
             <Heart className="w-3.5 h-3.5 fill-white text-white" />
-            <span>FAIRE UN DON</span>
+            <span>NOUS SOUTENIR</span>
           </a>
         </div>
 
         {/* Toggle Mobile */}
         <div className="md:hidden flex items-center gap-2">
           <a
-            href="#don"
+            href="#contact"
             className="px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider bg-[#ED1C24] text-white"
           >
-            Donner
+            Soutenir
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -85,18 +85,18 @@ export default function Navbar() {
             Nos 6 Axes
           </a>
           <a
-            href="#espaces-sante"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-[#002157] font-semibold border-b border-slate-100"
-          >
-            Espaces Santé
-          </a>
-          <a
             href="#terrain"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-[#002157] font-semibold border-b border-slate-100"
           >
-            Terrain & Impact
+            Nos Projets
+          </a>
+          <a
+            href="#blog"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2 text-[#002157] font-semibold border-b border-slate-100"
+          >
+            Blog & Décryptages
           </a>
           <a
             href="#contact"

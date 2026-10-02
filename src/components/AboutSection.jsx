@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Heart } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 /* =========================================================================
    ICÔNES SUR-MESURE HAUT DE GAMME (Bespoke Vector Icons pour Solution Hayathe)
@@ -125,10 +125,15 @@ export default function AboutSection() {
              ========================================================= */}
           <div className="lg:col-span-6 space-y-6 sm:space-y-7">
             
-            {/* Tag officiel */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-50 text-[#ED1C24] border border-red-200">
-              <Heart className="w-3.5 h-3.5 fill-[#ED1C24]" />
-              <span>À Propos de Solution Hayathe</span>
+            {/* Tag officiel moderne et épuré */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/90 shadow-xs">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ED1C24] opacity-60"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ED1C24]"></span>
+              </span>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#002157] font-body">
+                À Propos de Solution Hayathe
+              </span>
             </div>
 
             {/* Grand Titre en Glancyr */}
