@@ -4,10 +4,11 @@ import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import ProjectsSection from './components/ProjectsSection';
+import PartnersSection from './components/PartnersSection';
 import BlogSection from './components/BlogSection';
 import ContactSection from './components/ContactSection';
-import PatternDivider from './components/PatternDivider';
 import Footer from './components/Footer';
+import PatternDivider from './components/PatternDivider';
 
 export default function App() {
   return (
@@ -15,37 +16,37 @@ export default function App() {
       {/* 1. Header & Navigation officielle */}
       <Navbar />
 
-      {/* 2. Contenu Principal */}
       <main id="main-content">
-        {/* Hero Section Principale */}
+        {/* 2. Hero Section Principale (Accueil) */}
         <Hero />
 
-        {/* Section À Propos & Engagement */}
+        {/* Séparateur Motif Couronnes — Juste après la section Accueil */}
+        <PatternDivider />
+
+        {/* 3. Section À Propos & Vision */}
         <AboutSection />
 
-        {/* Section Nos Services & Domaines d'Intervention */}
+        {/* 4. Section Nos Domaines d'Intervention & Services */}
         <ServicesSection />
 
-        {/* Frise & Séparateur Géométrique Officiel */}
-        <PatternDivider 
-          bgColor="bg-[#002157]" 
-          strokeColor="stroke-white"
-          height="h-10 sm:h-12"
-        />
-
-        {/* Section Nos Projets & Actions de Terrain */}
+        {/* 5. Section Nos Projets & Actions de Terrain */}
         <ProjectsSection />
 
-        {/* Section Blog & Derniers Décryptages (Style exact de la maquette de référence) */}
+        {/* 6. Section Partenaires & Réseau Institutionnel */}
+        <PartnersSection />
+
+        {/* 7. Section Blog & Publications */}
         <BlogSection />
 
-        {/* Section Contact Direct & Formulaire (Style exact de la maquette de référence) */}
+        {/* 8. Section Contact & Dons */}
         <ContactSection />
+
+        {/* Séparateur Motif Couronnes — Juste en haut du Footer */}
+        <PatternDivider />
       </main>
 
-      {/* 3. Footer Institutionnel Officiel */}
+      {/* 9. Footer Institutionnel */}
       <Footer />
     </div>
   );
 }
-

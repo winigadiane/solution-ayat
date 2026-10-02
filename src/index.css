@@ -88,6 +88,11 @@
   --text-dark: #0F172A;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
 body {
   background-color: var(--bg-page);
   color: var(--text-body);
@@ -136,3 +141,57 @@ h6,
     linear-gradient(to right, rgba(0, 33, 87, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 33, 87, 0.03) 1px, transparent 1px);
 }
+
+/* Animations d'icônes de contact */
+@keyframes pinBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes phoneRing {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-14deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  45% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes mailFloat {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.08) translateY(-2px);
+  }
+}
+
+.anim-pin {
+  animation: pinBounce 2.4s ease-in-out infinite;
+}
+
+.anim-phone {
+  animation: phoneRing 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.anim-mail {
+  animation: mailFloat 2.8s ease-in-out infinite;
+}
+

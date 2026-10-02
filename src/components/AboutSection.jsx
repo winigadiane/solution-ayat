@@ -72,7 +72,7 @@ export default function AboutSection() {
              ========================================================= */}
           <div className="lg:col-span-6 relative flex justify-center lg:justify-start">
             <div className="relative w-full max-w-[500px] h-[480px] sm:h-[540px]">
-              
+
               {/* 1. Petite photo flottante en haut à gauche (0° inclinaison / parfaitement droite) */}
               <div className="absolute top-0 left-2 sm:left-4 w-36 sm:w-44 h-28 sm:h-36 rounded-2xl overflow-hidden shadow-lg border-4 border-white z-10">
                 <img
@@ -124,7 +124,7 @@ export default function AboutSection() {
               COLONNE DROITE : Contenus Épurés Sans Contenants & Icônes Custom
              ========================================================= */}
           <div className="lg:col-span-6 space-y-6 sm:space-y-7">
-            
+
             {/* Tag officiel moderne et épuré */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/90 shadow-xs">
               <span className="relative flex h-2 w-2">
@@ -150,7 +150,7 @@ export default function AboutSection() {
                 CONTENUS PURS SANS CONTENANTS (Cards retirées, Icônes Custom)
                ========================================================= */}
             <div className="space-y-6 pt-2">
-              
+
               {/* Item 1 : Valeurs & Droits Humains */}
               <div className="flex items-start gap-4 sm:gap-5 group">
                 <IconValuesBespoke className="w-12 h-12 shrink-0" />
@@ -181,7 +181,7 @@ export default function AboutSection() {
 
             {/* Rangée Direction / Leader & Bouton CTA (Pill Button) */}
             <div className="pt-5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              
+
               {/* Leader Avatar & Titre */}
               <div className="flex items-center gap-3.5">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#002157]/20 shadow-sm shrink-0 bg-slate-100">
@@ -203,7 +203,7 @@ export default function AboutSection() {
 
               {/* Bouton Pill "En savoir plus" */}
               <a
-                href="#don"
+                href="#services"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-white bg-[#002157] hover:bg-[#ED1C24] shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer shrink-0 active:scale-95"
               >
                 <span>En Savoir Plus</span>

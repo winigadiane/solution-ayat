@@ -28,11 +28,11 @@ function IllustVBG({ className = "w-12 h-12" }) {
       {/* Bouclier protecteur en Bleu Nuit */}
       <path d="M24 6l14 6v12c0 10-8 16-14 18-6-2-14-8-14-18V12l14-6z" stroke="#002157" fill="#002157" fillOpacity="0.05" />
       
-      {/* Balance de justice et cœur en Rouge Officiel */}
+      {/* Balance de justice et cœur en Rouge & Or */}
       <path d="M24 14v16" stroke="#ED1C24" strokeWidth="2.2" />
       <path d="M16 20h16" stroke="#ED1C24" strokeWidth="2.2" />
-      <path d="M14 26l4-6 4 6a4 4 0 0 1-8 0z" stroke="#ED1C24" fill="#ED1C24" fillOpacity="0.15" />
-      <path d="M26 26l4-6 4 6a4 4 0 0 1-8 0z" stroke="#ED1C24" fill="#ED1C24" fillOpacity="0.15" />
+      <path d="M14 26l4-6 4 6a4 4 0 0 1-8 0z" stroke="#FFCD00" fill="#FFCD00" fillOpacity="0.3" strokeWidth="1.5" />
+      <path d="M26 26l4-6 4 6a4 4 0 0 1-8 0z" stroke="#FFCD00" fill="#FFCD00" fillOpacity="0.3" strokeWidth="1.5" />
     </svg>
   );
 }
@@ -60,10 +60,9 @@ function IllustCPS({ className = "w-12 h-12" }) {
       <circle cx="24" cy="18" r="8" stroke="#002157" fill="#002157" fillOpacity="0.05" />
       <path d="M15 38c0-5 4-9 9-9s9 4 9 9" stroke="#002157" strokeWidth="2" />
       
-      {/* Étincelle d'émancipation et d'autonomie en Rouge & Jaune */}
-      <path d="M24 13l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4L24 13z" fill="#ED1C24" stroke="none" />
-      <circle cx="35" cy="14" r="4" fill="white" stroke="#ED1C24" strokeWidth="1.5" />
-      <path d="M35 12v4M33 14h4" stroke="#ED1C24" strokeWidth="1.5" />
+      {/* Symbole d'autonomie en Jaune Or & Rouge */}
+      <circle cx="35" cy="15" r="5" fill="#FFCD00" fillOpacity="0.2" stroke="#FFCD00" strokeWidth="1.5" />
+      <path d="M35 12v6M32 15h6" stroke="#ED1C24" strokeWidth="1.5" />
     </svg>
   );
 }
@@ -99,7 +98,8 @@ function IllustResearch({ className = "w-12 h-12" }) {
 }
 
 /* =========================================================================
-   DONNÉES DES 6 DOMAINES DE SERVICES (Avec Nuances Thème Bleu & Rouge)
+   DONNÉES DES 6 DOMAINES DE SERVICES
+   Thèmes : 'yellow' (Ombre jaune or), 'navy' (Bleu nuit), 'red' (Rouge vif)
    ========================================================================= */
 
 const SERVICES_DATA = [
@@ -109,16 +109,14 @@ const SERVICES_DATA = [
     theme: 'red',
     title: 'Santé Sexuelle & DSSR',
     description: 'Sensibilisation en milieu scolaire et communautaire, accès à l’information éclairée et distribution de kits d’hygiène menstruelle lavables.',
-    featured: false,
     illustration: IllustDSSR
   },
   {
     id: 'vbg',
     tag: 'Droits & Genre',
-    theme: 'navy',
+    theme: 'yellow',
     title: 'Genre & Lutte contre les VBG',
     description: 'Accompagnement holistique des survivantes de violences basées sur le genre, plaidoyer pour l’égalité des droits et leadership féminin.',
-    featured: true,
     illustration: IllustVBG
   },
   {
@@ -127,16 +125,14 @@ const SERVICES_DATA = [
     theme: 'navy',
     title: 'Approche One Health',
     description: 'Déploiement d’espaces promoteurs de santé (EPS) reliant santé humaine, santé animale et préservation de l’environnement.',
-    featured: false,
     illustration: IllustOneHealth
   },
   {
     id: 'cps',
     tag: 'Autonomie & Jeunesse',
-    theme: 'red',
+    theme: 'yellow',
     title: 'Compétences Psychosociales',
     description: 'Ateliers d’autonomisation et renforcement de la résilience, prise de parole et estime de soi auprès des adolescentes et jeunes filles.',
-    featured: false,
     illustration: IllustCPS
   },
   {
@@ -145,7 +141,6 @@ const SERVICES_DATA = [
     theme: 'navy',
     title: 'Engagement & JAMOH',
     description: 'Animation d’Espaces d’Écoute et de Soutien (EES) et organisation de Journées d’Action Médicale et d’Orientation Hayathe.',
-    featured: false,
     illustration: IllustCommunity
   },
   {
@@ -154,7 +149,6 @@ const SERVICES_DATA = [
     theme: 'red',
     title: 'Recherche & Innovation',
     description: 'Enquêtes participatives de terrain, capitalisation des savoirs communautaires et élaboration de solutions durables et réplicables.',
-    featured: false,
     illustration: IllustResearch
   }
 ];
@@ -167,9 +161,10 @@ export default function ServicesSection() {
   const [activeCard, setActiveCard] = useState('vbg');
 
   return (
-    <section id="axes" className="py-20 lg:py-28 bg-white relative overflow-hidden">
-      {/* Halos subtils du thème : Bleu Nuit à gauche, Rouge à droite */}
+    <section id="services" className="py-20 lg:py-28 bg-white relative overflow-hidden">
+      {/* Halos subtils du thème : Bleu Nuit, Rouge et Jaune Or */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-50/60 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-[#FFCD00]/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-red-50/50 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -184,31 +179,41 @@ export default function ServicesSection() {
         </div>
 
         {/* =========================================================
-            2. GRILLE DE CARTES (3 Colonnes - Harmonie Bleu Nuit & Rouge)
+            2. GRILLE DE CARTES (Avec Ombres Jaunes, Bleues et Rouges)
            ========================================================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {SERVICES_DATA.map((service) => {
             const isSelected = activeCard === service.id;
             const IllustrationComponent = service.illustration;
+            const isYellow = service.theme === 'yellow';
             const isNavy = service.theme === 'navy';
+            const isRed = service.theme === 'red';
 
             return (
               <div
                 key={service.id}
                 onMouseEnter={() => setActiveCard(service.id)}
                 className={`group bg-white rounded-3xl p-7 sm:p-8 border transition-all duration-300 relative overflow-hidden flex flex-col justify-between cursor-pointer ${
-                  isSelected
-                    ? isNavy
-                      ? 'border-[#002157]/40 shadow-xl shadow-blue-950/10 -translate-y-1'
-                      : 'border-[#ED1C24]/40 shadow-xl shadow-red-500/10 -translate-y-1'
-                    : 'border-slate-200/90 shadow-xs hover:border-slate-300 hover:shadow-lg hover:-translate-y-0.5'
+                  isYellow
+                    ? isSelected
+                      ? 'border-[#FFCD00] shadow-2xl shadow-[#FFCD00]/35 -translate-y-1.5 ring-2 ring-[#FFCD00]/40'
+                      : 'border-slate-200/90 shadow-lg shadow-[#FFCD00]/20 hover:border-[#FFCD00] hover:shadow-2xl hover:shadow-[#FFCD00]/35 hover:-translate-y-1'
+                    : isSelected
+                      ? isNavy
+                        ? 'border-[#002157]/40 shadow-xl shadow-[#002157]/15 -translate-y-1'
+                        : 'border-[#ED1C24]/40 shadow-xl shadow-[#ED1C24]/15 -translate-y-1'
+                      : 'border-slate-200/90 shadow-xs hover:border-slate-300 hover:shadow-lg hover:-translate-y-0.5'
                 }`}
               >
                 {/* Haut de la carte : Tag, Titre & Description */}
                 <div className="space-y-3 relative z-10 mb-8">
-                  {/* Petit badge thématique Bleu Nuit / Rouge */}
+                  {/* Petit badge thématique */}
                   <div className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold font-body uppercase tracking-wider">
-                    {isNavy ? (
+                    {isYellow ? (
+                      <span className="text-[#002157] bg-[#FFCD00]/25 border border-[#FFCD00]/60 px-2.5 py-0.5 rounded-full font-bold shadow-xs">
+                        {service.tag}
+                      </span>
+                    ) : isNavy ? (
                       <span className="text-[#002157] bg-blue-50 border border-blue-200/80 px-2 py-0.5 rounded-full">
                         {service.tag}
                       </span>
@@ -222,7 +227,11 @@ export default function ServicesSection() {
                   <h3
                     className={`font-title font-bold text-xl sm:text-2xl transition-colors leading-snug ${
                       isSelected
-                        ? isNavy ? 'text-[#002157]' : 'text-[#ED1C24]'
+                        ? isYellow
+                          ? 'text-[#002157]'
+                          : isNavy
+                            ? 'text-[#002157]'
+                            : 'text-[#ED1C24]'
                         : 'text-[#002157] group-hover:text-[#ED1C24]'
                     }`}
                   >
@@ -234,20 +243,24 @@ export default function ServicesSection() {
                   </p>
                 </div>
 
-                {/* Bas de la carte : Bouton rond d'action + Illustration Bi-colore */}
+                {/* Bas de la carte : Bouton rond d'action + Illustration */}
                 <div className="flex items-center justify-between pt-4 mt-auto border-t border-slate-100">
                   
                   {/* Bouton flèche gauche + Libellé "En savoir plus" */}
                   <div className="flex items-center gap-3">
                     <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                        isSelected
-                          ? isNavy
-                            ? 'bg-[#002157] text-white shadow-md shadow-[#002157]/30 scale-105'
-                            : 'bg-[#ED1C24] text-white shadow-md shadow-[#ED1C24]/30 scale-105'
-                          : isNavy
-                            ? 'bg-blue-50 text-[#002157] group-hover:bg-[#002157] group-hover:text-white group-hover:scale-105'
-                            : 'bg-slate-100 text-slate-700 group-hover:bg-[#ED1C24] group-hover:text-white group-hover:scale-105'
+                        isYellow
+                          ? isSelected
+                            ? 'bg-[#FFCD00] text-[#002157] shadow-md shadow-[#FFCD00]/50 scale-105 font-bold'
+                            : 'bg-[#FFCD00]/20 text-[#002157] group-hover:bg-[#FFCD00] group-hover:scale-105 group-hover:shadow-md'
+                          : isSelected
+                            ? isNavy
+                              ? 'bg-[#002157] text-white shadow-md shadow-[#002157]/30 scale-105'
+                              : 'bg-[#ED1C24] text-white shadow-md shadow-[#ED1C24]/30 scale-105'
+                            : isNavy
+                              ? 'bg-blue-50 text-[#002157] group-hover:bg-[#002157] group-hover:text-white group-hover:scale-105'
+                              : 'bg-slate-100 text-slate-700 group-hover:bg-[#ED1C24] group-hover:text-white group-hover:scale-105'
                       }`}
                     >
                       <ArrowRight className="w-4 h-4" />
@@ -255,7 +268,9 @@ export default function ServicesSection() {
                     <span
                       className={`text-xs font-semibold transition-colors ${
                         isSelected
-                          ? isNavy ? 'text-[#002157]' : 'text-[#ED1C24]'
+                          ? isYellow
+                            ? 'text-[#002157] font-bold'
+                            : isNavy ? 'text-[#002157]' : 'text-[#ED1C24]'
                           : 'text-[#606060] group-hover:text-[#002157]'
                       }`}
                     >
@@ -263,7 +278,7 @@ export default function ServicesSection() {
                     </span>
                   </div>
 
-                  {/* Illustration Bi-Colore (#002157 & #ED1C24) sans contenant */}
+                  {/* Illustration Bi-Colore (#002157 & #ED1C24 / #FFCD00) sans contenant */}
                   <div className="shrink-0 transform group-hover:scale-110 transition-transform duration-300">
                     <IllustrationComponent className="w-11 h-11 sm:w-12 sm:h-12" />
                   </div>
@@ -275,19 +290,19 @@ export default function ServicesSection() {
         </div>
 
         {/* =========================================================
-            3. BANNIÈRE PILL INFÉRIEURE (Bleu Nuit & Rouge)
+            3. BANNIÈRE PILL INFÉRIEURE
            ========================================================= */}
         <div className="mt-14 max-w-3xl mx-auto rounded-2xl sm:rounded-full bg-slate-50 border border-slate-200/90 p-3 sm:p-3.5 px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
           
           <div className="flex items-center gap-2.5 text-center sm:text-left">
-            <span className="w-2 h-2 rounded-full bg-[#002157] shrink-0 hidden sm:inline-block" />
+            <span className="w-2 h-2 rounded-full bg-[#FFCD00] shrink-0 hidden sm:inline-block" />
             <p className="text-xs sm:text-sm font-medium text-[#002157] font-body">
               Faites confiance à notre engagement terrain pour vos projets de santé et d'égalité.
             </p>
           </div>
 
           <a
-            href="#don"
+            href="#terrain"
             className="px-6 py-2.5 rounded-xl sm:rounded-full bg-[#002157] hover:bg-[#ED1C24] text-white text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer shrink-0 active:scale-95"
           >
             Explorer nos actions

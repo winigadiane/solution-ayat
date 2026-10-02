@@ -402,9 +402,9 @@ export default function ProjectsSection() {
                   Fermer
                 </button>
                 <a
-                  href="#don"
+                  href="#contact"
                   onClick={() => setActiveModalProject(null)}
-                  className="px-5 py-2 rounded-lg bg-[#ED1C24] hover:bg-[#c9141b] text-white text-xs font-bold uppercase tracking-wider shadow-sm flex items-center gap-1.5 cursor-pointer active:scale-95"
+                  className="px-5 py-2 rounded-lg bg-[#ED1C24] hover:bg-[#c9141b] text-white text-xs font-bold uppercase tracking-wider shadow-sm flex items-center gap-1.5 cursor-pointer active:scale-95 font-body"
                 >
                   <Heart className="w-3.5 h-3.5 fill-white" />
                   <span>Soutenir ce projet</span>

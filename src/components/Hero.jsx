@@ -91,7 +91,7 @@ export default function Hero() {
   }, [isPaused, imagesLoaded, heroImages.length]);
 
   return (
-    <section className="relative px-4 sm:px-6 lg:px-8 pt-1 pb-12 sm:pb-16 max-w-[1440px] mx-auto select-none bg-white">
+    <section id="accueil" className="relative px-4 sm:px-6 lg:px-8 pt-1 pb-12 sm:pb-16 max-w-[1440px] mx-auto select-none bg-white">
       
       {/* Conteneur Hero Principal : Grande carte arrondie au style exact du mockup Granter
           Aux couleurs officielles : Fond Bleu Nuit #002157 et Dégradé Institutionnel */}
@@ -219,10 +219,10 @@ export default function Hero() {
             >
               {/* Bouton 1 : Rouge vif officiel #ED1C24 avec flèche */}
               <a
-                href="#don"
+                href="#contact"
                 className="px-7 py-4 rounded-xl text-xs font-bold uppercase tracking-wider bg-[#ED1C24] hover:bg-[#c9141b] text-white transition-all duration-200 shadow-lg hover:shadow-red-500/30 active:scale-95 flex items-center gap-3 cursor-pointer group font-body"
               >
-                <span>Faire un don</span>
+                <span>Nous Soutenir</span>
                 <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
               </a>
 
@@ -338,11 +338,11 @@ export default function Hero() {
             <div className="pt-2 flex items-center justify-between">
               <span className="text-xs text-slate-500 font-mono">Récépissé N° 0352 MATGLA-SG-DLPAP-DOCA</span>
               <a
-                href="#don"
+                href="#contact"
                 onClick={() => setVideoModalOpen(false)}
-                className="px-5 py-2.5 rounded-xl bg-[#ED1C24] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#c9141b] transition-colors shadow-sm"
+                className="px-5 py-2.5 rounded-xl bg-[#ED1C24] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#c9141b] transition-colors shadow-sm font-body"
               >
-                Soutenir cette mission
+                Nous Contacter
               </a>
             </div>
           </div>
