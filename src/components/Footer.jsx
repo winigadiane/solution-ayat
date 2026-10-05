@@ -187,6 +187,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#rejoindre" className="hover:text-white transition-colors flex items-center gap-1.5 group">
+                  <ChevronRight className="w-3.5 h-3.5 text-[#ED1C24] group-hover:translate-x-0.5 transition-transform" />
+                  <span>Nous Rejoindre</span>
+                </a>
+              </li>
+              <li>
                 <a href="#blog" className="hover:text-white transition-colors flex items-center gap-1.5 group">
                   <ChevronRight className="w-3.5 h-3.5 text-[#ED1C24] group-hover:translate-x-0.5 transition-transform" />
                   <span>Actualités & Publications</span>

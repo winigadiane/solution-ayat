@@ -6,6 +6,7 @@ import ServicesSection from './components/ServicesSection';
 import ProjectsSection from './components/ProjectsSection';
 import PartnersSection from './components/PartnersSection';
 import BlogSection from './components/BlogSection';
+import JoinUsSection from './components/JoinUsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import PatternDivider from './components/PatternDivider';
@@ -38,14 +39,17 @@ export default function App() {
         {/* 7. Section Blog & Publications */}
         <BlogSection />
 
-        {/* 8. Section Contact & Dons */}
+        {/* 8. Section Nous Rejoindre (Faire un don, Partenariat, Sponsoring, Bénévolat, Réseaux) */}
+        <JoinUsSection />
+
+        {/* 9. Section Contact & Dons */}
         <ContactSection />
 
         {/* Séparateur Motif Couronnes — Juste en haut du Footer */}
         <PatternDivider />
       </main>
 
-      {/* 9. Footer Institutionnel */}
+      {/* 10. Footer Institutionnel */}
       <Footer />
     </div>
   );
